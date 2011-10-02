@@ -55,9 +55,8 @@ $(function(){
     
      
     $.getJSON('http://search.twitter.com/search.json'+ q + '', function (data) {
-    
-      console.log( data )
-      console.log( queue.length )
+      
+      
       $('#new-tweets-bar').text('' + queue.length + ' new tweets');
       
       if( queue.length > 0){
@@ -66,10 +65,10 @@ $(function(){
       
       }
       
-      //$('#results').empty();
+   
 	    
 	    $.each(data.results, function( i, t ){
-	    
+	          console.log(t)
             if( i === 0){
             
               latestTweet = t.id;
@@ -94,7 +93,7 @@ $(function(){
   	          
   	        }else{
   	        
-  	        $('#results').append('<div class="stream-item"><div class="tweet"><span style="padding-left:10px; float:left; width:50px; "><img src="' + t.profile_image_url + '" /></span><span style="vertical-align:top; float:left;font-size:11px;  padding-left:10px; width:350px;"><b>' + t.from_user + '</b> <br />' + t.text + ' <br /><span style="font-size:10px;">'+ t.created_at +'</span></span></div></div')
+  	        $('#results').append('<div class="stream-item"><div class="tweet"><span style="padding-left:10px; float:left; width:50px; "><img src="' + t.profile_image_url + '" /></span><span style="vertical-align:top; float:left;font-size:11px;  padding-left:10px; width:350px;"><b><a href="http://www.twitter.com/' + t.from_user + '" >' + t.from_user + '</a></b> <br />' + t.text + ' <br /><span style="font-size:10px;">'+ t.created_at +'</span></span></div></div')
   	        
   	       }
   	       
@@ -163,7 +162,7 @@ $(function(){
 	        }
 	        
 	        
-	     $('#results').prepend('<div class="stream-item"><div class="tweet"><span style="padding-left:10px; float:left; width:50px; "><img src="' + t.profile_image_url + '" /></span><span style="vertical-align:top; float:left;font-size:11px;  padding-left:10px; width:350px;"><b>' + t.from_user + '</b> <br />' + t.text + ' <br /><span style="font-size:10px;">'+ t.created_at +'</span></span></div></div')
+	     $('#results').prepend('<div class="stream-item"><div class="tweet"><span style="padding-left:10px; float:left; width:50px; "><img src="' + t.profile_image_url + '" /></span><span style="vertical-align:top; float:left;font-size:11px;  padding-left:10px; width:350px;"><a href="http://www.twitter.com/' + t.from_user + '" >' + t.from_user + '</a> <br />' + t.text + ' <br /><span style="font-size:10px;">'+ t.created_at +'</span></span></div></div')
 	     
 	     if( i === queue.length - 1 ){
 	      
