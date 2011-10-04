@@ -80,6 +80,7 @@ $(function(){
   	          
   	          var lat = t.geo.coordinates[0], lng = t.geo.coordinates[1];
   	          var marker = new L.Marker(new L.LatLng(lat, lng));
+  	          marker.bindPopup('<div class="stream-item" ><div class="tweet"><span style="padding-left:10px; float:left; width:50px; "><img src="' + t.profile_image_url + '" /></span><span style="vertical-align:top; float:left;font-size:11px;  padding-left:10px; width:175px;"><b><a href="http://www.twitter.com/' + t.from_user + '" >' + t.from_user + '</a></b> <br />' + t.text + ' <br /><span style="font-size:10px;">'+ t.created_at +'</span></span></div></div')
               map.addLayer(marker);
   	           
   	        }

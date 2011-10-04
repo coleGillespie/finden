@@ -5,8 +5,7 @@
 	<meta charset="utf-8" />
 	
 	<link rel="stylesheet" href="dist/leaflet.css" />
-	<link rel="stylesheet" href="jquery-ui/themes/base/jquery.ui.all.css">
-	<link rel="stylesheet" href="jquery-ui/demos/demos.css">
+	
 	<link rel="stylesheet" href="css/bootstrap.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/twitter.css" rel="stylesheet">
 	
@@ -25,12 +24,7 @@
   	  float:left;
   	}
   	
-  	div{
-  	
-  	  clear: both;
-  	  float:left;
-  	  
-  	}
+  
   	
   	#options{
   	
@@ -99,25 +93,10 @@
 </head>
 <body>
 
-    <div class="topbar" style="width:100%;">
-    
-      <div class="fill" style="width:100%;">
-      
-          <form class="pull-left" action="">
-          <h2 style="color:#fff; width: 600px; float:left;">find tweets within your area.</h2>
-          <h2 style="float:right; right:0; width: 200px; margin-left: 180px; color:#fff;"></h2>
-          
-          </form>
-          
-        </div>
-        
-      </div>
-      
-    </div>
   
         
-  	<div id="map" style="width: 60%; bottom:0px; top:40px; position:absolute;"></div>
-    <div id="resultsContainer" style="width:40%; right:0; top:40px; bottom:0px; position:absolute;">
+  	<div id="map" style="width: 60%; bottom:0px; top:0px; position:absolute;"></div>
+    <div id="resultsContainer" style="width:40%; right:0; top:0px; bottom:0px; position:absolute;">
       <div id="new-tweets-bar" class="js-new-tweets-bar" style="width:93%; text-align:center; display:none;">test</div>
       <div id="results" style="width:100%; height:100%; overflow:auto; margin-top: 10px;"></div>
     </div>

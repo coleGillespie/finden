@@ -312,6 +312,8 @@ a.leaflet-active {
 	-moz-border-radius: 20px; 
 	-webkit-border-radius: 20px;
 	border-radius: 20px;
+	width:300px;
+	height: 150px;
 	}
 .leaflet-popup-content {
 	font: 12px/1.4 "Helvetica Neue", Arial, Helvetica, sans-serif;
