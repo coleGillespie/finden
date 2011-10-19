@@ -8,6 +8,14 @@ $(function(){
   //cross referencing 
   var map = new L.Map('map'), latestTweet, queue = [];
   
+  var t = $.template('<div id="foo">Hello ${name}, how are you ${question}?  I am ${me:substr(0,10)}</div>');
+
+  $('#results').append( t , {
+       name: 'Stan',
+       question: 'feeling',
+       me: 'doing quite well myself, thank you very much!'
+  });
+  
   var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/3a83164a47874169be4cabc2e8b8c449/43782/256/{z}/{x}/{y}.png', cloudmadeAttribution = '', cloudmade = new L.TileLayer(cloudmadeUrl, {maxZoom: 18, attribution: cloudmadeAttribution});
   
   if (Modernizr.geolocation) {
@@ -42,9 +50,9 @@ $(function(){
     
     map.addLayer(marker);
     
-    fetchTweets( '?geocode=' + location.coords.latitude + ',' + location.coords.longitude + ',20km&&rpp=100&callback=?' )
+    //fetchTweets( '?geocode=' + location.coords.latitude + ',' + location.coords.longitude + ',20km&&rpp=100&callback=?' )
     var interval = setInterval(function(){
-        fetchTweets('?since_id='+ latestTweet +'&geocode=' + location.coords.latitude + ',' + location.coords.longitude + ',20km&&rpp=100&callback=?', true)
+        //fetchTweets('?since_id='+ latestTweet +'&geocode=' + location.coords.latitude + ',' + location.coords.longitude + ',20km&&rpp=100&callback=?', true)
       
     }, 10000)
     
@@ -81,6 +89,7 @@ $(function(){
   	          var lat = t.geo.coordinates[0], lng = t.geo.coordinates[1];
   	          var marker = new L.Marker(new L.LatLng(lat, lng));
   	          marker.bindPopup('<div class="stream-item" ><div class="tweet"><span style="padding-left:10px; float:left; width:50px; "><img src="' + t.profile_image_url + '" /></span><span style="vertical-align:top; float:left;font-size:11px;  padding-left:10px; width:175px;"><b><a href="http://www.twitter.com/' + t.from_user + '" >' + t.from_user + '</a></b> <br />' + t.text + ' <br /><span style="font-size:10px;">'+ t.created_at +'</span></span></div></div')
+  	          
               map.addLayer(marker);
   	           
   	        }
@@ -159,7 +168,7 @@ $(function(){
 	          var lat = t.geo.coordinates[0], lng = t.geo.coordinates[1];
 	          var marker = new L.Marker(new L.LatLng(lat, lng));
             map.addLayer(marker);
-	           
+	          
 	        }
 	        
 	        
@@ -168,6 +177,7 @@ $(function(){
 	     if( i === queue.length - 1 ){
 	      
 	      queue = [];
+	      
 	      $('#new-tweets-bar').css('display', 'none');
 	      
 	     }
